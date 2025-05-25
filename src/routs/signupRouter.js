@@ -24,12 +24,14 @@ const createUser = async (req, res) => {
       username,
       email,
       password,
+      storage: "15GB",
       createdAt: new Date(),
     };
 
     const result = await userCollection.insertOne(newUser);
     res.status(201).json({
       message: "User created successfully",
+      getStorage: newUser.storage,
       user: newUser,
     });
   } catch (err) {

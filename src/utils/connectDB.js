@@ -14,11 +14,20 @@ const client = new MongoClient(uri, {
 
 const db = client.db("JotterStorage");
 const userCollection = db.collection("user");
+const noteCollection = db.collection("note");
 const imageCollection = db.collection("images");
-
+const pdfCollection = db.collection("pdf");
+const folderCollection = db.collection("folder");
 
 async function connectDB() {
   return client.connect();
 }
 connectDB().catch(console.dir);
-module.exports = { connectDB, imageCollection, userCollection };
+module.exports = {
+  connectDB,
+  userCollection,
+  noteCollection,
+  imageCollection,
+  pdfCollection,
+  folderCollection,
+};
