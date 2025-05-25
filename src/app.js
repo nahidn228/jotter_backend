@@ -18,6 +18,7 @@ const { createFavorite } = require("./routs/createFavorite");
 const { getAllData } = require("./routs/getAllData");
 const { renameFile } = require("./routs/renameFile");
 const { duplicateData } = require("./routs/duplicateData");
+const {  deleteOneImage } = require("./routs/deleteOneImage");
 
 //middleware
 app.use(cors());
@@ -45,6 +46,8 @@ app.get("/api/all-data", getAllData);
 // http://localhost:3000/api/all-data?email=nahid@example.com
 
 app.patch("/api/rename", renameFile);
+app.delete("/api/image/:id", deleteOneImage);
+//http://localhost:3000/api/image/:6832fb643534beb1e166d2b6
 
 
 //playground

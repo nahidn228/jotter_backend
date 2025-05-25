@@ -1,13 +1,19 @@
-
 const { ObjectId } = require("mongodb");
-const { noteCollection, imageCollection, pdfCollection, folderCollection } = require("../utils/connectDB");
+const {
+  noteCollection,
+  imageCollection,
+  pdfCollection,
+  folderCollection,
+} = require("../utils/connectDB");
 
 const duplicateData = async (req, res) => {
   try {
     const { collectionType, id } = req.body;
 
     if (!collectionType || !id) {
-      return res.status(400).json({ message: "collectionType and id are required" });
+      return res
+        .status(400)
+        .json({ message: "collectionType and id are required" });
     }
 
     const objectId = new ObjectId(id);
@@ -54,7 +60,9 @@ const duplicateData = async (req, res) => {
     });
   } catch (err) {
     console.error("Duplicate error:", err);
-    res.status(500).json({ message: "Error duplicating Data", error: err.message });
+    res
+      .status(500)
+      .json({ message: "Error duplicating Data", error: err.message });
   }
 };
 
