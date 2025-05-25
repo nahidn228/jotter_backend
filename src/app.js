@@ -3,16 +3,16 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { createUser } = require("./routs/signupRouter");
+const { signin } = require("./routs/signinRouter");
 
 //middleware
 app.use(cors());
 app.use(express.json());
 
 //routes
-// app.use("/api/v1/image", imageRouter);
-// app.use("/api/v1/comment", commentRouter);
 
-app.post("/api/user", createUser);
+app.post("/api/signup", createUser);
+app.post("/api/signin", signin);
 
 //playground
 
