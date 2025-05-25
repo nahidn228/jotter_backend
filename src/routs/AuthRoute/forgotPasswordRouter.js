@@ -1,4 +1,4 @@
-const { userCollection } = require("../utils/connectDB");
+const { userCollection } = require("../../utils/connectDB");
 
 const forgotPassword = async (req, res) => {
   try {
@@ -20,10 +20,8 @@ const forgotPassword = async (req, res) => {
         .json({ message: "User not found with this email" });
     }
 
-    if(newPassword !== confirmPassword){
-       return res
-        .status(400)
-        .json({ message: "Your password not matched" });
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({ message: "Your password not matched" });
     }
 
     // Update password

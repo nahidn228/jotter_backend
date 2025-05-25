@@ -43,7 +43,7 @@ const uploadImage = async (req, res) => {
 
     const user = await userCollection.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "Invalid user" });
+      return res.status(400).json({ message: "User not Found" });
     }
 
     if (!req.file) {

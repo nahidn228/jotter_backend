@@ -5,13 +5,16 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 
-const { createUser } = require("./routs/signupRouter");
-const { signin } = require("./routs/signinRouter");
-const { forgotPassword } = require("./routs/forgotPasswordRouter");
-const { uploadImage, upload } = require("./routs/fileUpload/imageRouter");
-const { uploadDocMiddleware, uploadDoc } = require("./routs/fileUpload/noteRouter");
-const { createFolder } = require("./routs/fileUpload/createFolder");
 
+const { forgotPassword } = require("./routs/AuthRoute/forgotPasswordRouter");
+const { uploadImage, upload } = require("./routs/fileUpload/imageRouter");
+const {
+  uploadDocMiddleware,
+  uploadDoc,
+} = require("./routs/fileUpload/noteRouter");
+const { createFolder } = require("./routs/fileUpload/createFolder");
+const { createUser } = require("./routs/AuthRoute/signupRouter");
+const { signin } = require("./routs/AuthRoute/signinRouter");
 
 //middleware
 app.use(cors());
@@ -31,7 +34,6 @@ app.post("/api/uploadImage", upload.single("image"), uploadImage);
 app.post("/api/uploadDoc", uploadDocMiddleware.single("file"), uploadDoc);
 
 app.post("/api/folder", createFolder);
-
 
 //playground
 
