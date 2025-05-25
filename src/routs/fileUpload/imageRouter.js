@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 
 //dummy storage
-const uploadDir = "uploads";
+const uploadDir = "/tmp/uploads";
 
 
 // Ensure uploads folder exists

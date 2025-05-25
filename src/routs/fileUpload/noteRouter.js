@@ -4,7 +4,7 @@ const multer = require("multer");
 const path = require("path");
 
 //dummy storage
-const uploadDir = "uploads";
+const uploadDir = "/tmp/uploads";
 
 // Allowed extensions
 const allowedDocTypes = [".pdf", ".doc", ".docx", ".txt"];
