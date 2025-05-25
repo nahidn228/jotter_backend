@@ -11,6 +11,7 @@ const {
   uploadDocMiddleware,
   uploadDoc,
 } = require("./routs/fileUpload/noteRouter");
+
 const { createFolder } = require("./routs/fileUpload/createFolder");
 const { createUser } = require("./routs/AuthRoute/signupRouter");
 const { signin } = require("./routs/AuthRoute/signinRouter");
@@ -23,6 +24,7 @@ const { getSingleFolder } = require("./routs/getSingleFolder");
 const { getAllFavorites } = require("./routs/getAllfavourite");
 const { getAllDataByDate } = require("./routs/getAllDataByDate");
 const { renameUser } = require("./routs/AuthRoute/renameUser");
+const { deleteUser } = require("./routs/AuthRoute/deleteUser");
 
 //middleware
 app.use(cors());
@@ -61,6 +63,7 @@ app.patch("/api/rename", renameFile);
 app.patch("/api/rename-user", renameUser);
 
 app.delete("/api/image/:id", deleteOneImage);
+app.delete("/api/delete-user/", deleteUser);
 
 
 
