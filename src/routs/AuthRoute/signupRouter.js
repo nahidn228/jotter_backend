@@ -1,11 +1,10 @@
 const { userCollection } = require("../../utils/connectDB");
 
-
 const createUser = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, pin } = req.body;
 
-    if (!username || !email || !password) {
+    if (!username || !email || !password || !pin) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -25,6 +24,7 @@ const createUser = async (req, res) => {
       username,
       email,
       password,
+      pin,
       storage: "15GB",
       createdAt: new Date(),
     };

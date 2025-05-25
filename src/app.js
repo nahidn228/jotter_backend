@@ -25,6 +25,7 @@ const { getAllFavorites } = require("./routs/getAllfavourite");
 const { getAllDataByDate } = require("./routs/getAllDataByDate");
 const { renameUser } = require("./routs/AuthRoute/renameUser");
 const { deleteUser } = require("./routs/AuthRoute/deleteUser");
+const { getPrivateDataWithPin } = require("./routs/privateData/privateData");
 
 //middleware
 app.use(cors());
@@ -57,6 +58,7 @@ app.get("/api/favorites", getAllFavorites);
 //http://localhost:3000/api/favorites?email=nahid@example.com
 
 app.get("/api/folder/:id", getSingleFolder);
+app.get("/api/private", getPrivateDataWithPin);
 
 
 app.patch("/api/rename", renameFile);
