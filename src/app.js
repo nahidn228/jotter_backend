@@ -22,6 +22,7 @@ const {  deleteOneImage } = require("./routs/deleteOneImage");
 const { getSingleFolder } = require("./routs/getSingleFolder");
 const { getAllFavorites } = require("./routs/getAllfavourite");
 const { getAllDataByDate } = require("./routs/getAllDataByDate");
+const { renameUser } = require("./routs/AuthRoute/renameUser");
 
 //middleware
 app.use(cors());
@@ -57,6 +58,8 @@ app.get("/api/folder/:id", getSingleFolder);
 
 
 app.patch("/api/rename", renameFile);
+app.patch("/api/rename-user", renameUser);
+
 app.delete("/api/image/:id", deleteOneImage);
 
 
