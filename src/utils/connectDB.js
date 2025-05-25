@@ -18,6 +18,7 @@ const noteCollection = db.collection("note");
 const imageCollection = db.collection("images");
 const pdfCollection = db.collection("pdf");
 const folderCollection = db.collection("folder");
+const favoriteCollection = db.collection("favorite");
 
 async function connectDB() {
   return client.connect();
@@ -30,4 +31,5 @@ module.exports = {
   imageCollection,
   pdfCollection,
   folderCollection,
+  favoriteCollection
 };

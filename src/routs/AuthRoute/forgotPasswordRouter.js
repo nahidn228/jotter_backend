@@ -1,5 +1,6 @@
 const { userCollection } = require("../../utils/connectDB");
 
+
 const forgotPassword = async (req, res) => {
   try {
     const { email, newPassword, confirmPassword } = req.body;

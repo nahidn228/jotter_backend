@@ -1,4 +1,5 @@
-const { userCollection } = require("../utils/connectDB");
+const { userCollection } = require("../../utils/connectDB");
+
 
 const signin = async (req, res) => {
   try {

@@ -15,6 +15,7 @@ const {
 const { createFolder } = require("./routs/fileUpload/createFolder");
 const { createUser } = require("./routs/AuthRoute/signupRouter");
 const { signin } = require("./routs/AuthRoute/signinRouter");
+const { createFavorite } = require("./routs/createFavorite");
 
 //middleware
 app.use(cors());
@@ -34,6 +35,7 @@ app.post("/api/uploadImage", upload.single("image"), uploadImage);
 app.post("/api/uploadDoc", uploadDocMiddleware.single("file"), uploadDoc);
 
 app.post("/api/folder", createFolder);
+app.post("/api/favorite", createFavorite);
 
 //playground
 

@@ -1,4 +1,5 @@
-const { userCollection } = require("../utils/connectDB");
+const { userCollection } = require("../../utils/connectDB");
+
 
 const createUser = async (req, res) => {
   try {
