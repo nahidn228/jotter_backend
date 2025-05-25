@@ -10,6 +10,7 @@ const { signin } = require("./routs/signinRouter");
 const { forgotPassword } = require("./routs/forgotPasswordRouter");
 const { uploadImage, upload } = require("./routs/fileUpload/imageRouter");
 const { uploadDocMiddleware, uploadDoc } = require("./routs/fileUpload/noteRouter");
+const { createFolder } = require("./routs/fileUpload/createFolder");
 
 
 //middleware
@@ -26,9 +27,10 @@ app.post("/api/forgot-password", forgotPassword);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.post("/api/uploadImage", upload.single("image"), uploadImage);
 
-// Doc file upload route
-
+// Doc/pdf file upload route
 app.post("/api/uploadDoc", uploadDocMiddleware.single("file"), uploadDoc);
+
+app.post("/api/folder", createFolder);
 
 
 //playground
