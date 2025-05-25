@@ -17,6 +17,7 @@ const { signin } = require("./routs/AuthRoute/signinRouter");
 const { createFavorite } = require("./routs/createFavorite");
 const { getAllData } = require("./routs/getAllData");
 const { renameFile } = require("./routs/renameFile");
+const { duplicateData } = require("./routs/duplicateData");
 
 //middleware
 app.use(cors());
@@ -37,6 +38,9 @@ app.post("/api/uploadDoc", uploadDocMiddleware.single("file"), uploadDoc);
 
 app.post("/api/folder", createFolder);
 app.post("/api/favorite", createFavorite);
+app.post("/api/duplicate", duplicateData);
+
+
 app.get("/api/all-data", getAllData);  
 // http://localhost:3000/api/all-data?email=nahid@example.com
 
