@@ -5,7 +5,6 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 
-
 const { forgotPassword } = require("./routs/AuthRoute/forgotPasswordRouter");
 const { uploadImage, upload } = require("./routs/fileUpload/imageRouter");
 const {
@@ -16,6 +15,8 @@ const { createFolder } = require("./routs/fileUpload/createFolder");
 const { createUser } = require("./routs/AuthRoute/signupRouter");
 const { signin } = require("./routs/AuthRoute/signinRouter");
 const { createFavorite } = require("./routs/createFavorite");
+const { getAllData } = require("./routs/getAllData");
+const { renameFile } = require("./routs/renameFile");
 
 //middleware
 app.use(cors());
@@ -36,8 +37,14 @@ app.post("/api/uploadDoc", uploadDocMiddleware.single("file"), uploadDoc);
 
 app.post("/api/folder", createFolder);
 app.post("/api/favorite", createFavorite);
+app.get("/api/all-data", getAllData);  
+// http://localhost:3000/api/all-data?email=nahid@example.com
+
+app.patch("/api/rename", renameFile);
+
 
 //playground
+
 
 app.get("/", (req, res) => {
   res.send("🏹 Hello From Jotter Storage Management!");
