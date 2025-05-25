@@ -20,6 +20,7 @@ const { renameFile } = require("./routs/renameFile");
 const { duplicateData } = require("./routs/duplicateData");
 const {  deleteOneImage } = require("./routs/deleteOneImage");
 const { getSingleFolder } = require("./routs/getSingleFolder");
+const { getAllFavorites } = require("./routs/getAllfavourite");
 
 //middleware
 app.use(cors());
@@ -45,6 +46,9 @@ app.post("/api/duplicate", duplicateData);
 
 app.get("/api/all-data", getAllData);  
 // http://localhost:3000/api/all-data?email=nahid@example.com
+
+app.get("/api/favorites", getAllFavorites);
+//http://localhost:3000/api/favorites?email=nahid@example.com
 
 app.get("/api/folder/:id", getSingleFolder);
 
